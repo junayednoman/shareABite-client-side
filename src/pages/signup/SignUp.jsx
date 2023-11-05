@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../auth provider/AuthProvider";
 import Swal from "sweetalert2";
 const SignUp = () => {
-    const { signUp, googleLogin } = useContext(AuthContext)
+    const { signUp, googleLogin, updateUser } = useContext(AuthContext)
 
 
     const handleSignUp = e => {
@@ -18,14 +18,14 @@ const SignUp = () => {
         const imgUrl = form.imageUrl.value;
         const user = { name, email, password, imgUrl }
 
-        if(password.length < 6){
+        if (password.length < 6) {
             Swal.fire(
                 'Error!',
                 `Password should be at least 6 characters`,
                 'error'
             )
             return;
-        }else if(!/^(?=.*[A-Z])(?=.*[\W_]).+$/.test(password)){
+        } else if (!/^(?=.*[A-Z])(?=.*[\W_]).+$/.test(password)) {
             Swal.fire(
                 'Error!',
                 `Password must contain at least one capital letter and one special character`,
@@ -36,11 +36,22 @@ const SignUp = () => {
         signUp(email, password)
             .then(res => {
                 console.log(res);
-                Swal.fire(
-                    'Success',
-                    'You have successfully created an account',
-                    'success'
-                )
+                updateUser(name, imgUrl)
+                    .then(() => {
+                        Swal.fire(
+                            'Success',
+                            'You have successfully created an account',
+                            'success'
+                        )
+                    })
+                    .catch(error => {
+                        Swal.fire(
+                            'Error!',
+                            `${error.message}`,
+                            'error'
+                        )
+                    })
+
             })
             .catch(error => {
                 console.log(error);
@@ -85,7 +96,7 @@ const SignUp = () => {
                         <img src={loginImg} alt="" />
                     </div>
                     <div>
-                        <form onSubmit={handleSignUp} className="flex mx-auto max-w-md flex-col gap-4">
+                        <form onSubmit={handleSignUp} className="flex mx-auto max-w-md flex-col gap-4 ml-auto">
                             <div>
                                 <div className="mb-2 block">
                                     <Label htmlFor="name" value="Your name" />
@@ -113,12 +124,15 @@ const SignUp = () => {
 
 
                             <input className='cursor-pointer text-white bg-[#9CC020] hover:bg-[#9dc020df] focus:ring-4 focus:ring-[#9dc020ca] font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700' type="submit" value={'Sign Up'} />
+                            <div>
+                                <p>Do not have an account?<Link to='/login' className='font-medium text-[#9CC020]'> Login</Link > here.</p>
+
+                                <div className='text-center mt-4'>
+                                    <h3 className='mb-2 text-lg font-medium'>---- OR ----</h3>
+                                    <Button onClick={handleLoginWithGoogle} className='w-full bg-[#25602B]'>Login with google</Button>
+                                </div>
+                            </div>
                         </form>
-                        <p className='mt-4'>Already have an account? <Link to='/login' className='font-medium text-[#9CC020]'>Login</Link > here.</p>
-                        <div className='text-center mt-5'>
-                            <h3 className='mb-2 text-lg font-medium'>---- OR ----</h3>
-                            <Button onClick={handleLoginWithGoogle} className='w-full bg-[#25602B]'>Login with google</Button>
-                        </div>
                     </div>
                 </div>
             </div>

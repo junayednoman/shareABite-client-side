@@ -87,13 +87,16 @@ const Login = () => {
                                 <Label htmlFor="remember">Remember me</Label>
                             </div>
                             <input className='cursor-pointer text-white bg-[#9CC020] hover:bg-[#9dc020df] focus:ring-4 focus:ring-[#9dc020ca] font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700' type="submit" value={'Login'} />
-                        </form>
-                        <p className='mt-4'>Do not have an account?<Link to='/sign-up' className='font-medium text-[#9CC020]'> Sign up</Link > here.</p>
+                            <div>
+                                <p>Do not have an account?<Link to='/sign-up' className='font-medium text-[#9CC020]'> Sign up</Link > here.</p>
 
-                        <div className='text-center mt-5'>
-                            <h3 className='mb-2 text-lg font-medium'>---- OR ----</h3>
-                            <Button onClick={handleLoginWithGoogle} className='w-full bg-[#25602B]'>Login with google</Button>
-                        </div>
+                                <div className='text-center mt-4'>
+                                    <h3 className='mb-2 text-lg font-medium'>---- OR ----</h3>
+                                    <Button onClick={handleLoginWithGoogle} className='w-full bg-[#25602B]'>Login with google</Button>
+                                </div>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>

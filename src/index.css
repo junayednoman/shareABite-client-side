@@ -56,14 +56,14 @@ body {
   }
 
   .spacer {
-    padding: 100px;
+    padding: 100px 0;
   }
 }
 
 
 
 
-.my-menu a {
+.my-menu .anchor {
   padding: 6px 12px;
   border-radius: 3px;
 }
@@ -72,7 +72,7 @@ body {
   margin: 0 !important;
 }
 
-.my-menu a.active {
+.my-menu .anchor.active {
   background-color: #9CC020 !important;
   /* display: none !important; */
   color: #000;
