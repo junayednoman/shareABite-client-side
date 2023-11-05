@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Oswald:wght@400;500;600;700&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: block;
+}
+
+.spacer {
+  padding: 100px 0;
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    padding: 0 10px;
+  }
+
+  .spacer {
+    padding: 50px 0;
+  }
+}
+
+@media (min-width: 640px) {
+  .wrapper {
+    /* display: none; */
+    padding: 0 30px;
+  }
+
+  .spacer {
+    padding: 70px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 0 40px;
+  }
+
+  .spacer {
+    padding: 80px 0;
+  }
+}
+
+@media (min-width: 1165px) {
+  .wrapper {
+    padding: 0;
+  }
+
+  .spacer {
+    padding: 100px;
+  }
+}
+
+
+
+
+.my-menu a {
+  padding: 6px 12px;
+  border-radius: 3px;
+}
+
+.my-menu li {
+  margin: 0 !important;
+}
+
+.my-menu a.active {
+  background-color: #9CC020 !important;
+  /* display: none !important; */
+  color: #000;
+}
