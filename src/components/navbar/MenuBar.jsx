@@ -1,17 +1,38 @@
 // import Link from 'next/link';
 import { Button, Navbar } from 'flowbite-react';
 import logo from '../../assets/logo.png'
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../auth provider/AuthProvider';
+import Swal from 'sweetalert2';
 const MenuBar = () => {
-    const { user, loading } = useContext(AuthContext);
+    const { user, loading, logOut } = useContext(AuthContext);
     const location = useLocation();
+    const navigate = useNavigate();
     // console.log(location);
 
     // if(location.pathname === '/login' || location.pathname === '/sign-up'){
     //     return;
     // }
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                Swal.fire(
+                    'Success!',
+                    'You have logged out successfully',
+                    'success'
+                )
+                navigate('/login')
+            })
+            .catch(error => {
+                Swal.fire(
+                    'Error!',
+                    `${error.message}`,
+                    'error'
+                )
+            })
+    }
 
     return (
         <div className='wrapper'>
@@ -22,11 +43,11 @@ const MenuBar = () => {
                     {/* <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span> */}
                 </Navbar.Brand>
                 {user ? <div className="flex md:order-2">
-                    < Button className='bg-[#9CC020] my-btn duration-200'><Link to='/login'>{loading ? 'Loading...': 'Log Out'}</Link></Button>
+                    < Button onClick={handleLogOut} className='bg-[#9CC020] my-btn duration-200'><Link>{loading ? 'Loading...' : 'Log Out'}</Link></Button>
                     <Navbar.Toggle className='p-0 ml-3' />
                 </div>
                     : <div className="flex md:order-2">
-                        <Button className='bg-[#9CC020] my-btn duration-200'><Link to='/login'>{loading ? 'Loading...': 'Login'}</Link></Button>
+                        <Button className='bg-[#9CC020] my-btn duration-200'><Link to='/login'>{loading ? 'Loading...' : 'Login'}</Link></Button>
                         <Navbar.Toggle className='p-0 ml-3' />
                     </div>
 
