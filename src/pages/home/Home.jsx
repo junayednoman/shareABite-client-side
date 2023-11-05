@@ -1,5 +1,5 @@
-import { Button } from "flowbite-react";
 import { Helmet } from "react-helmet-async";
+import Banner from "./sections/banner/Banner";
 
 const Home = () => {
     return (
@@ -7,8 +7,8 @@ const Home = () => {
             <Helmet>
                 <title>Home | ShareABite - Waste Less, Feed</title>
             </Helmet>
-            <h2>This is home</h2>
-            <Button color="failure">Purple</Button>
+            
+            <Banner></Banner>
 
         </div>
     );
