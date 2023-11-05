@@ -1,4 +1,4 @@
-import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
+import { Checkbox, Label, TextInput } from 'flowbite-react';
 import { Helmet } from 'react-helmet-async';
 import login from '../../assets/login.jpg'
 import { Link } from 'react-router-dom';
@@ -34,8 +34,7 @@ const Login = () => {
                             <div className="flex items-center gap-2">
                                 <Checkbox id="remember" />
                                 <Label htmlFor="remember">Remember me</Label>
-                            </div>
-                            <Button className='bg-[#9CC020]'><input className='' type="submit" value={'Login'} /></Button>
+                            </div><input className='cursor-pointer text-white bg-[#9CC020] hover:bg-[#9dc020df] focus:ring-4 focus:ring-[#9dc020ca] font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700' type="submit" value={'Login'} />
                         </form>
                         <p className='mt-4'>Do not have an account?<Link to='/sign-up' className='font-medium text-[#9CC020]'> Sign up</Link > here.</p>
                     </div>
