@@ -1,9 +1,42 @@
 import { Checkbox, Label, TextInput } from 'flowbite-react';
 import { Helmet } from 'react-helmet-async';
-import login from '../../assets/login.jpg'
+import loginImg from '../../assets/login.jpg'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../auth provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+    const {login}= useContext(AuthContext);
+
+    const handleLogin = e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const user = { email, password, }
+
+        login(email, password)
+            .then(res => {
+                console.log(res);
+                Swal.fire(
+                    'Success',
+                    'You have successfully Logged in',
+                    'success'
+                )
+            })
+            .catch(error => {
+                console.log(error);
+                Swal.fire(
+                    'Error!',
+                    `${error.message}`,
+                    'error'
+                )
+            })
+        console.log(user);
+    }
+
+
     return (
         <div className='wrapper'>
             <div className="spacer">
@@ -11,30 +44,31 @@ const Login = () => {
                     <title>Login | ShareABite - Waste Less, Feed</title>
                 </Helmet>
 
-                <h3 className='text-center font-semibold text-lg md:text-3xl mb-1 md:mb-4'>Please, login</h3>
+                <h3 className='text-center font-semibold text-xl md:text-4xl mb-1 md:mb-12'>Please, login</h3>
 
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-10 items-center'>
                     <div>
-                        <img src={login} alt="" />
+                    <img src={loginImg} alt="" />
                     </div>
                     <div>
-                        <form className="flex mx-auto max-w-md flex-col gap-4">
+                        <form onSubmit={handleLogin} className="flex mx-auto max-w-md flex-col gap-4">
                             <div>
                                 <div className="mb-2 block">
                                     <Label htmlFor="email1" value="Your email" />
                                 </div>
-                                <TextInput id="email1" type="email" placeholder="name@flowbite.com" required />
+                                <TextInput name='email' id="email1" type="email" placeholder="name@flowbite.com" required />
                             </div>
                             <div>
                                 <div className="mb-2 block">
                                     <Label htmlFor="password1" value="Your password" />
                                 </div>
-                                <TextInput id="password1" type="password" required />
+                                <TextInput name='password' id="password1" type="password" required />
                             </div>
                             <div className="flex items-center gap-2">
                                 <Checkbox id="remember" />
                                 <Label htmlFor="remember">Remember me</Label>
-                            </div><input className='cursor-pointer text-white bg-[#9CC020] hover:bg-[#9dc020df] focus:ring-4 focus:ring-[#9dc020ca] font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700' type="submit" value={'Login'} />
+                            </div>
+                            <input className='cursor-pointer text-white bg-[#9CC020] hover:bg-[#9dc020df] focus:ring-4 focus:ring-[#9dc020ca] font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700' type="submit" value={'Login'} />
                         </form>
                         <p className='mt-4'>Do not have an account?<Link to='/sign-up' className='font-medium text-[#9CC020]'> Sign up</Link > here.</p>
                     </div>

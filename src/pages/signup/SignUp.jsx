@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import login from '../../assets/login.jpg'
+import loginImg from '../../assets/login.jpg'
 import { Label, TextInput } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -7,7 +7,6 @@ import { AuthContext } from "../../auth provider/AuthProvider";
 import Swal from "sweetalert2";
 const SignUp = () => {
     const { signUp } = useContext(AuthContext)
-
 
 
     const handleSignUp = e => {
@@ -46,11 +45,11 @@ const SignUp = () => {
                     <title>Sign Up | ShareABite - Waste Less, Feed</title>
                 </Helmet>
 
-                <h3 className='text-center font-semibold text-lg md:text-3xl mb-1 md:mb-4'>Please, sign up</h3>
+                <h3 className='text-center font-semibold text-xl md:text-4xl mb-1 md:mb-12'>Please, sign up</h3>
 
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-10 items-center'>
                     <div>
-                        <img src={login} alt="" />
+                        <img src={loginImg} alt="" />
                     </div>
                     <div>
                         <form onSubmit={handleSignUp} className="flex mx-auto max-w-md flex-col gap-4">

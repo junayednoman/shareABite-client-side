@@ -1,9 +1,18 @@
 import { Footer } from 'flowbite-react';
 import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter, } from 'react-icons/bs';
 import logo from '../../assets/logo.png'
+import { useLocation } from 'react-router-dom';
 
 
 const MyFooter = () => {
+    const location = useLocation();
+    // console.log(location);
+
+    // if (location.pathname === '/login' || location.pathname === '/sign-up') {
+    //     return;
+    // }
+
+
     return (
         <div className='wrapper'>
             <Footer container>
@@ -18,7 +27,7 @@ const MyFooter = () => {
                                 123 Main Street <br />
                                 Anytown, USA <br />
                                 12345</p> */}
-                                <p className='mt-3 text-gray-500 text-sm'>Connecting surplus to need, we are on a mission to reduce food waste and hunger, one plate at a time.</p>
+                            <p className='mt-3 text-gray-500 text-sm'>Connecting surplus to need, we are on a mission to reduce food waste and hunger, one plate at a time.</p>
                         </div>
                         <div className='ml-0 lg:ml-5 col-span-1 lg:col-span-2'>
                             <Footer.Title className='md:mt-0 mt-5 mb-3' title="Contact Info" />

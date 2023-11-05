@@ -15,11 +15,13 @@ import { HelmetProvider } from 'react-helmet-async';
 import Login from './pages/login/Login.jsx';
 import SignUp from './pages/signup/SignUp.jsx';
 import AuthProvider from './auth provider/AuthProvider.jsx';
+import ErrorPage from './pages/error page/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
