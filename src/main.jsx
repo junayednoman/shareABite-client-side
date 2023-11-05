@@ -13,6 +13,8 @@ import ManageFood from './pages/private/manage food/ManageFood.jsx';
 import FoodRequest from './pages/private/my food request/FoodRequest.jsx';
 import { HelmetProvider } from 'react-helmet-async';
 import Login from './pages/login/Login.jsx';
+import SignUp from './pages/signup/SignUp.jsx';
+import AuthProvider from './auth provider/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +45,10 @@ const router = createBrowserRouter([
         path: '/login',
         element: <Login></Login>
       },
+      {
+        path: '/sign-up',
+        element: <SignUp></SignUp>
+      },
     ]
   }
 ])
@@ -50,7 +56,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HelmetProvider>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </HelmetProvider>
   </React.StrictMode>,
 )

@@ -1,6 +1,7 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import { Helmet } from 'react-helmet-async';
 import login from '../../assets/login.jpg'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -10,12 +11,14 @@ const Login = () => {
                     <title>Login | ShareABite - Waste Less, Feed</title>
                 </Helmet>
 
-                <div className='grid grid-cols-2 gap-10 items-center'>
+                <h3 className='text-center font-semibold text-lg md:text-3xl mb-1 md:mb-4'>Please, login</h3>
+
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center'>
                     <div>
                         <img src={login} alt="" />
                     </div>
                     <div>
-                        <form className="flex max-w-md flex-col gap-4">
+                        <form className="flex mx-auto max-w-md flex-col gap-4">
                             <div>
                                 <div className="mb-2 block">
                                     <Label htmlFor="email1" value="Your email" />
@@ -34,6 +37,7 @@ const Login = () => {
                             </div>
                             <Button className='bg-[#9CC020]'><input className='' type="submit" value={'Login'} /></Button>
                         </form>
+                        <p className='mt-4'>Do not have an account?<Link to='/sign-up' className='font-medium text-[#9CC020]'> Sign up</Link > here.</p>
                     </div>
                 </div>
             </div>
