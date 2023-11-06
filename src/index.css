@@ -40,6 +40,21 @@ body ::selection {
 
   background-color: #9CC020;
 }
+.section_title2::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  border-radius: 5px;
+  left: 0;
+  width: 70%;
+  height: 2px;
+
+  background-color: #9CC020;
+}
+.section_title2{
+  position: relative;
+  display: inline-block;
+}
 .food_card > img:first-of-type{
   width: 230px;
   margin: 0 auto;
