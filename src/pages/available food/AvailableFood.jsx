@@ -7,22 +7,27 @@ import { useState } from "react";
 const AvailableFood = () => {
     const loadedFoods = useLoaderData();
     const [foods, setFoods] = useState(loadedFoods);
-    const [searchLoading, setSearchLoading] = useState(false)
-
 
     const handleSearch = e => {
-        setSearchLoading(true);
         e.preventDefault();
         const searchTxt = e.target.searchTxt.value.toLocaleLowerCase();
         const filteredItem = loadedFoods.filter(loadedFood => loadedFood.food_name.toLocaleLowerCase().includes(searchTxt))
         setFoods(filteredItem)
-        setSearchLoading(false);
     }
 
     // console.log(searchText);
 
-    if (searchLoading) {
-        return <p>Loading...</p>
+    const handleSortByExpireDate = () => {
+
+        const filteredItems = foods.sort((a, b) => {
+            const dateA = new Date(a.expire_date)
+            const dateB = new Date(b.expire_date)
+            return dateB - dateA;
+        })
+        console.log(filteredItems);
+        const newFoods = [...filteredItems];
+        setFoods(newFoods)
+        // console.log(newFoods);
     }
 
     return (
@@ -39,7 +44,7 @@ const AvailableFood = () => {
                         </form>
                     </div>
                     <div>
-                        <Button className="bg-[#9CC020] mx-auto mt-4 md:mt-8">Sort foods by expire date</Button>
+                        <Button onClick={handleSortByExpireDate} className="bg-[#9CC020] mx-auto mt-4 md:mt-8">Sort foods by expire date</Button>
                     </div>
                 </div>
             </div>
