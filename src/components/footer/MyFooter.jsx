@@ -1,16 +1,9 @@
 import { Footer } from 'flowbite-react';
 import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter, } from 'react-icons/bs';
 import logo from '../../assets/logo.png'
-import { useLocation } from 'react-router-dom';
 
 
 const MyFooter = () => {
-    const location = useLocation();
-    // console.log(location);
-
-    // if (location.pathname === '/login' || location.pathname === '/sign-up') {
-    //     return;
-    // }
 
 
     return (

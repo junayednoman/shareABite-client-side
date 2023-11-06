@@ -24,7 +24,6 @@ const Home = () => {
 
     const sortedFoods = foods.sort((a, b) => b.quantity - a.quantity);
     const featuredFoods = sortedFoods.slice(0, 6);
-    console.log(featuredFoods);
 
 
 

@@ -9,7 +9,6 @@ const AvailableFood = () => {
     const [foods, setFoods] = useState(loadedFoods);
     const [searchLoading, setSearchLoading] = useState(false)
 
-    // console.log(foods);
 
     const handleSearch = e => {
         setSearchLoading(true);

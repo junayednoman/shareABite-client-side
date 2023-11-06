@@ -14,11 +14,10 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        const user = { email, password, }
+        // const user = { email, password, }
 
         login(email, password)
-            .then(res => {
-                console.log(res);
+            .then(() => {
                 Swal.fire(
                     'Success',
                     'You have successfully Logged in',
@@ -26,14 +25,12 @@ const Login = () => {
                 )
             })
             .catch(error => {
-                console.log(error);
                 Swal.fire(
                     'Error!',
                     `${error.message}`,
                     'error'
                 )
             })
-        console.log(user);
     }
 
     const handleLoginWithGoogle = () => {

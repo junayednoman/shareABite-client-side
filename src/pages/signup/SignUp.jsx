@@ -16,7 +16,7 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         const imgUrl = form.imageUrl.value;
-        const user = { name, email, password, imgUrl }
+        // const user = { name, email, password, imgUrl }
 
         if (password.length < 6) {
             Swal.fire(
@@ -34,8 +34,7 @@ const SignUp = () => {
             return;
         }
         signUp(email, password)
-            .then(res => {
-                console.log(res);
+            .then(() => {
                 updateUser(name, imgUrl)
                     .then(() => {
                         Swal.fire(
@@ -54,14 +53,12 @@ const SignUp = () => {
 
             })
             .catch(error => {
-                console.log(error);
                 Swal.fire(
                     'Error!',
                     `${error.message}`,
                     'error'
                 )
             })
-        console.log(user);
     }
 
     const handleLoginWithGoogle = () => {

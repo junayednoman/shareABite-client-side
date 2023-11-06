@@ -1,7 +1,7 @@
 // import Link from 'next/link';
 import { Button, Navbar } from 'flowbite-react';
 import logo from '../../assets/logo.png'
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../auth provider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -10,13 +10,7 @@ import { Tooltip } from 'flowbite-react';
 
 const MenuBar = () => {
     const { user, loading, logOut } = useContext(AuthContext);
-    const location = useLocation();
     const navigate = useNavigate();
-    // console.log(location);
-
-    // if(location.pathname === '/login' || location.pathname === '/sign-up'){
-    //     return;
-    // }
 
     const handleLogOut = () => {
         logOut()
