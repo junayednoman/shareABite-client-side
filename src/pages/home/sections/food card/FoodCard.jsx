@@ -10,7 +10,7 @@ const FoodCard = ({ food }) => {
     return (
         <div>
             <Card
-                className="max-w-sm shadow-none hover:shadow-md duration-200 food_card"
+                className="max-w-sm shadow-none hover:shadow-md duration-200 food_card mx-auto"
                 imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
                 imgSrc="https://img.freepik.com/free-photo/basket-full-vegetables_1112-316.jpg?w=996&t=st=1699245562~exp=1699246162~hmac=f3e9321a7dd7b1727963ccc0525f57fd2ea7a62c4e69a348e2ee62afe373d766"
             >

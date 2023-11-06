@@ -41,10 +41,9 @@ const MenuBar = () => {
         <div className='wrapper'>
 
 
-
-            <Navbar fluid rounded className='p-0 py-8'>
+            <Navbar fluid rounded className='p-0 py-6 md:py-8'>
                 <Navbar.Brand href="/">
-                    <img src={logo} className="mr-3 w-[130px] md:w-[160px]" alt="Flowbite React Logo" />
+                    <img src={logo} className="mr-3 w-[120px] md:w-[160px]" alt="Flowbite React Logo" />
                     {/* <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span> */}
                 </Navbar.Brand>
                 {user ? <div className="flex md:order-2">
