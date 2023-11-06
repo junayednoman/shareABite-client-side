@@ -24,6 +24,7 @@ const AvailableFood = () => {
             const dateB = new Date(b.expire_date)
             return dateB - dateA;
         })
+
         console.log(filteredItems);
         const newFoods = [...filteredItems];
         setFoods(newFoods)
@@ -36,7 +37,7 @@ const AvailableFood = () => {
                 <title>Available Foods | ShareABite - Waste Less, Feed</title>
             </Helmet>
             <div className="wrapper">
-                <div className="spacer">
+                <div className="md:py-10">
                     <div>
                         <form className="flex justify-center gap-2 items-center " onSubmit={handleSearch}>
                             <TextInput name="searchTxt" className="w-full md:w-1/3" id="base" placeholder="Search foods..." type="text" sizing="md" />
