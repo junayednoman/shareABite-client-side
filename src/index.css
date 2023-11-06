@@ -9,6 +9,11 @@ body {
   font-family: 'DM Sans', sans-serif;
 }
 
+body ::selection {
+  background-color: #9CC020 !important;
+  color: #fff !important;
+}
+
 .wrapper {
   max-width: 1140px;
   margin: 0 auto;
@@ -18,6 +23,35 @@ body {
 .spacer {
   padding: 100px 0;
 }
+
+.section_title{
+  position: relative;
+  display: inline-block;
+}
+
+.section_title::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  border-radius: 5px;
+  left: 15%;
+  width: 70%;
+  height: 2px;
+
+  background-color: #9CC020;
+}
+.food_card > img:first-of-type{
+  width: 230px;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
+
 
 @media (max-width: 640px) {
   .wrapper {
