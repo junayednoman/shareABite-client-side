@@ -23,7 +23,7 @@ const FoodCard = ({ food }) => {
                     <Avatar className="space-x-3 justify-start" img="https://img.freepik.com/free-photo/guy-plaid-shirt_158595-126.jpg?w=740&t=st=1699245756~exp=1699246356~hmac=21ef141643ae2d93f966d2e25b68b398da76f2e52b1b31bf79b880e0bb8c7397" rounded>
                         <div className="space-y-1 font-medium dark:text-white">
                             <Tooltip content='Donar' placement="right">
-                                <div className="text-base font-semibold">{donor_name}</div>
+                                <div className="text-sm font-semibold">{donor_name}</div>
                             </Tooltip>
                             <div className="flex gap-1 items-center">
                                 <Tooltip placement="bottom" content='Pickup Location'>

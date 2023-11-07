@@ -1,7 +1,7 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import { Helmet } from 'react-helmet-async';
 import loginImg from '../../assets/login.jpg'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../auth provider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
 const Login = () => {
     const { login, googleLogin } = useContext(AuthContext);
     const location = useLocation();
+    const navigate = useNavigate();
+
     console.log(location);
 
     const handleLogin = e => {
@@ -25,6 +27,10 @@ const Login = () => {
                     'You have successfully Logged in',
                     'success'
                 )
+                if (location.state) {
+                    return navigate(location.state.path);
+                }
+                return navigate('/');
             })
             .catch(error => {
                 Swal.fire(
@@ -43,8 +49,11 @@ const Login = () => {
                     'You have successfully Logged in',
                     'success'
                 )
-            })
-            .catch(error => {
+                if (location.state) {
+                    return navigate(location.state.path);
+                }
+                return navigate('/');
+            }).catch(error => {
                 Swal.fire(
                     'Error!',
                     `${error.message}`,
@@ -62,7 +71,7 @@ const Login = () => {
                 </Helmet>
 
                 <h3 className='text-center font-semibold text-xl md:text-4xl mb-1 md:mb-9'>
-                    {location.state?.message? location.state.message : 'Please, login'}
+                    {location.state?.message ? location.state.message : 'Please, login'}
                 </h3>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-10 items-center'>
