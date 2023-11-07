@@ -1,4 +1,4 @@
-import {  Label, Modal, TextInput } from 'flowbite-react';
+import { Label, Modal, TextInput } from 'flowbite-react';
 import { useLoaderData } from "react-router-dom";
 import { Card, Tooltip } from 'flowbite-react';
 import { CiLocationOn } from 'react-icons/ci';
@@ -6,12 +6,15 @@ import { FcExpired } from 'react-icons/fc';
 import { FaUsers } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
-import { AuthContext } from '../../auth provider/AuthProvider';
+import { AuthContext } from '../../../auth provider/AuthProvider';
 import moment from 'moment/moment';
+import useAxios from '../../../custom hooks/axios hook/useAxios';
+import Swal from 'sweetalert2';
 
 const FoodDetails = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const food = useLoaderData();
+    const axiosSecure = useAxios();
     const { quantity, expire_date, food_image, pickup_location, donor_name, food_name, additional_notes, _id, donor_email } = food;
 
     const [openModal, setOpenModal] = useState(false);
@@ -33,8 +36,19 @@ const FoodDetails = () => {
         const expireDate = form.expireDate.value;
         const note = form.note.value;
         const donationMoney = form.donationMoney.value;
-        const fields = {foodName, foodImage, donorName, donorEmail, requesterEmail, requestDate, pickupLocation, expireDate, note, donationMoney}
-        console.log(fields);
+        const foodData = { foodName, foodImage, donorName, donorEmail, requesterEmail, requestDate, pickupLocation, expireDate, note, donationMoney }
+        // console.log(fields);
+
+        axiosSecure.post('/food-request', foodData)
+            .then((res) => {
+                if (res.data.acknowledged) {
+                    Swal.fire(
+                        'Success',
+                        'Your request has been submitted successfully',
+                        'success'
+                    )
+                }
+            })
     }
 
 

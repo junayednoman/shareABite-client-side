@@ -16,7 +16,7 @@ import Login from './pages/login/Login.jsx';
 import SignUp from './pages/signup/SignUp.jsx';
 import AuthProvider from './auth provider/AuthProvider.jsx';
 import ErrorPage from './pages/error page/ErrorPage.jsx';
-import FoodDetails from './pages/food details/FoodDetails.jsx';
+import FoodDetails from './pages/private/food details/FoodDetails.jsx';
 
 const router = createBrowserRouter([
   {
