@@ -22,7 +22,7 @@ const AvailableFood = () => {
         const filteredItems = foods.sort((a, b) => {
             const dateA = new Date(a.expire_date)
             const dateB = new Date(b.expire_date)
-            return dateB - dateA;
+            return dateA - dateB;
         })
 
         console.log(filteredItems);
@@ -37,7 +37,7 @@ const AvailableFood = () => {
                 <title>Available Foods | ShareABite - Waste Less, Feed</title>
             </Helmet>
             <div className="wrapper">
-                <div className="md:py-10">
+                <div className="md:py-10 py-7">
                     <div>
                         <form className="flex justify-center gap-2 items-center " onSubmit={handleSearch}>
                             <TextInput name="searchTxt" className="w-full md:w-1/3" id="base" placeholder="Search foods..." type="text" sizing="md" />
@@ -45,7 +45,7 @@ const AvailableFood = () => {
                         </form>
                     </div>
                     <div>
-                        <Button onClick={handleSortByExpireDate} className="bg-[#9CC020] mx-auto mt-4 md:mt-8">Sort foods by expire date</Button>
+                        <Button onClick={handleSortByExpireDate} className="bg-[#9CC020] mx-auto mt-6 md:mt-8">Sort foods by expire date</Button>
                     </div>
                 </div>
             </div>
