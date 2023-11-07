@@ -10,12 +10,13 @@ import { AuthContext } from '../../../auth provider/AuthProvider';
 import moment from 'moment/moment';
 import useAxios from '../../../custom hooks/axios hook/useAxios';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const FoodDetails = () => {
     const { user } = useContext(AuthContext)
     const food = useLoaderData();
     const axiosSecure = useAxios();
-    const { quantity, expire_date, food_image, pickup_location, donor_name, food_name, additional_notes, _id, donor_email } = food;
+    const { quantity, expire_date, food_image, pickup_location, donor_name, food_name, additional_notes, donor_email } = food;
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -54,6 +55,9 @@ const FoodDetails = () => {
 
     return (
         <div className="wrapper spacer">
+            <Helmet>
+                <title>{food_name} | ShareABite - Waste Less, Feed</title>
+            </Helmet>
 
             <Card
                 className="shadow-none block md:flex md:flex-row md:w-[80%] w-[95%] lg:w-2/3 hover:shadow-md duration-200 gap-0 p-0 md:p-3 food_card2 items-center mx-auto"
@@ -146,7 +150,7 @@ const FoodDetails = () => {
                                 <div className="mb-2 block">
                                     <Label value="Requester Email" />
                                 </div>
-                                <TextInput name='requesterEmail' defaultValue={user.email} disabled required />
+                                <TextInput name='requesterEmail' defaultValue={user?.email} disabled required />
                             </div>
                             <div className=' mt-3'>
                                 <div className="mb-2 block">

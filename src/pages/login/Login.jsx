@@ -1,13 +1,15 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import { Helmet } from 'react-helmet-async';
 import loginImg from '../../assets/login.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../auth provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
     const { login, googleLogin } = useContext(AuthContext);
+    const location = useLocation();
+    console.log(location);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -59,7 +61,9 @@ const Login = () => {
                     <title>Login | ShareABite - Waste Less, Feed</title>
                 </Helmet>
 
-                <h3 className='text-center font-semibold text-xl md:text-4xl mb-1 md:mb-7'>Please, login</h3>
+                <h3 className='text-center font-semibold text-xl md:text-4xl mb-1 md:mb-9'>
+                    {location.state?.message? location.state.message : 'Please, login'}
+                </h3>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-10 items-center'>
                     <div>

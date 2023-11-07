@@ -17,6 +17,7 @@ import SignUp from './pages/signup/SignUp.jsx';
 import AuthProvider from './auth provider/AuthProvider.jsx';
 import ErrorPage from './pages/error page/ErrorPage.jsx';
 import FoodDetails from './pages/private/food details/FoodDetails.jsx';
+import PrivateParent from './private parent/PrivateParent.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       {
         path: '/available-food',
         element: <AvailableFood></AvailableFood>,
-        loader: ()=> fetch('http://localhost:5000/foods')
+        loader: () => fetch('http://localhost:5000/foods')
       },
       {
         path: '/add-food',
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/my-food-request',
-        element: <FoodRequest></FoodRequest>
+        element: <PrivateParent><FoodRequest></FoodRequest></PrivateParent>
       },
       {
         path: '/login',
@@ -55,8 +56,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/food/:id',
-        element: <FoodDetails></FoodDetails>,
-        loader: ({params})=>fetch(`http://localhost:5000/foods/${params.id}`)
+        element: <PrivateParent><FoodDetails></FoodDetails></PrivateParent>,
+        loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`)
       },
     ]
   }
