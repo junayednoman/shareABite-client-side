@@ -19,8 +19,8 @@ const FoodCard = ({ food }) => {
                         {food_name}
                     </h5>
                 </a>
-                <div className="flex gap-2 justify-between items-center">
-                    <Avatar className="space-x-3 justify-start" img="https://img.freepik.com/free-photo/guy-plaid-shirt_158595-126.jpg?w=740&t=st=1699245756~exp=1699246356~hmac=21ef141643ae2d93f966d2e25b68b398da76f2e52b1b31bf79b880e0bb8c7397" rounded>
+                <div className="flex md:flex-row flex-row gap-0 md:gap-2 justify-between items-center">
+                    <Avatar className="space-x-1 md:space-x-2 justify-start" img="https://img.freepik.com/free-photo/guy-plaid-shirt_158595-126.jpg?w=740&t=st=1699245756~exp=1699246356~hmac=21ef141643ae2d93f966d2e25b68b398da76f2e52b1b31bf79b880e0bb8c7397" rounded>
                         <div className="space-y-1 font-medium dark:text-white">
                             <Tooltip content='Donar' placement="right">
                                 <div className="text-sm font-semibold">{donor_name}</div>

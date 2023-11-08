@@ -8,17 +8,17 @@ const PrivateParent = ({ children }) => {
     const location = useLocation();
     const { user, loading } = useContext(AuthContext);
 
-    const stateInfo = {message: 'Please, login to visit the private page', path: location.pathname}
+    const stateInfo = { message: 'Please, login to visit the private page', path: location.pathname }
 
-    if(loading){
-        return  <div className='h-[60vh] flex justify-center items-center'>
+    if (loading) {
+        return <div className='h-[60vh] flex justify-center items-center'>
             <Spinner aria-label="Extra large spinner example" size="xl" />
         </div>
-    } else if (user) {
-        return  children ;
+    } else if (!user) {
+        return <Navigate state={stateInfo} to='/login' ></Navigate>
     }
-    console.log(location.pathname);
-    return <Navigate state={stateInfo} to='/login' ></Navigate>
+    return children;
+    // console.log(location.pathname);
 };
 
 PrivateParent.propTypes = {
