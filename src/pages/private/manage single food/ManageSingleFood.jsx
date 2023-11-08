@@ -6,13 +6,14 @@ import Swal from "sweetalert2";
 
 const ManageSingleFood = () => {
     const requestedFood = useLoaderData();
+    console.log(requestedFood);
     const [singleFood, setSingleFood] = useState({})
     const axiosSecure = useAxios();
 
     const params = useParams();
 
     useEffect(() => {
-        axiosSecure.get(`http://localhost:5000/foods/${params.id}`)
+        axiosSecure.get(`/foods/${params.id}`)
             .then(res => {
                 setSingleFood(res.data)
             })
@@ -21,16 +22,32 @@ const ManageSingleFood = () => {
     const handleFoodStatus = () => {
         const food_status = 'Delivered';
         const foodData = { food_status };
-        axiosSecure.patch(`http://localhost:5000/foods/${params.id}`, foodData)
+        axiosSecure.patch(`/foods/${params.id}`, foodData)
             .then(res => {
-                if(res.data.modifiedCount === 1){
+                if (res.data.modifiedCount === 1) {
                     Swal.fire(
                         'Success',
-                        'Status changed successfully',
+                        'Status changed successfully on general food collection',
                         'success'
                     )
+
+                    // change status on food request collection
+                    axiosSecure.patch(`/food-requests/${params.id}`, foodData)
+                        .then(res => {
+                            console.log(res.data);
+                            if (res.data.modifiedCount === 1) {
+                                Swal.fire(
+                                    'Success',
+                                    'Status changed successfully on request collection',
+                                    'success'
+                                )
+
+                            }
+                        })
+
                 }
             })
+
     }
 
 
@@ -45,6 +62,7 @@ const ManageSingleFood = () => {
                         <h5 className="font-semibold">{singleFood.food_name}</h5>
                         <p><span className="font-semibold">Expire Date: </span>{singleFood.expire_date}</p>
                         <p><span className="font-semibold">Quantity: </span>{singleFood.quantity}</p>
+                        <p className="text-[#9CC020]"><span className="font-semibold">Status: </span>{singleFood.food_status}</p>
                     </div>
                     <div className="border-l p-10">
                         {!requestedFood ? <h4>No request for this food</h4> : <>
@@ -54,7 +72,7 @@ const ManageSingleFood = () => {
                                 <h5 className="font-semibold">{requestedFood.donorName}</h5>
                                 <p><span className="font-semibold">Email: </span>{requestedFood.donorEmail}</p>
                                 <p><span className="font-semibold">Request Date: </span>{requestedFood.requestDate}</p>
-                                <p className="text-[#9CC020]"><span className="font-semibold">Status: </span>{requestedFood.food_status}</p>
+
                             </div>
                         </>}
                     </div>

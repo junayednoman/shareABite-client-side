@@ -2,14 +2,18 @@ import { Button, Spinner, TextInput } from "flowbite-react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import FoodCard from "../home/sections/food card/FoodCard";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../auth provider/AuthProvider";
-
 const AvailableFood = () => {
-    const{loading} = useContext(AuthContext);
+    const { loading } = useContext(AuthContext);
     const loadedFoods = useLoaderData();
     const [foods, setFoods] = useState(loadedFoods);
 
+    useEffect(() => {
+        const AvailableFoods = loadedFoods.filter(loadedFood => loadedFood.food_status === "Available");
+        console.log(AvailableFoods);
+        setFoods(AvailableFoods)
+    }, [])
     const handleSearch = e => {
         e.preventDefault();
         const searchTxt = e.target.searchTxt.value.toLocaleLowerCase();
@@ -33,8 +37,8 @@ const AvailableFood = () => {
         // console.log(newFoods);
     }
 
-    if(loading){
-        return  <div className='h-[50vh] flex justify-center items-center'>
+    if (loading) {
+        return <div className='h-[50vh] flex justify-center items-center'>
             <Spinner aria-label="Extra large spinner example" size="xl" />
         </div>
     }

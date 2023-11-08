@@ -17,7 +17,8 @@ const Home = () => {
         axiosSecure.get('foods')
             .then(res => {
                 // console.log(res.data);
-                setFoods(res.data)
+                const filteredItems = res.data.filter(item => item.food_status === "Available")
+                setFoods(filteredItems)
             })
     }, [])
     // console.log(foods);

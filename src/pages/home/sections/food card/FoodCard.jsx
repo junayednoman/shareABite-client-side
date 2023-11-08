@@ -12,7 +12,7 @@ const FoodCard = ({ food }) => {
             <Card
                 className="max-w-sm shadow-none hover:shadow-md duration-200 food_card mx-auto"
                 imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-                imgSrc="https://img.freepik.com/free-photo/basket-full-vegetables_1112-316.jpg?w=996&t=st=1699245562~exp=1699246162~hmac=f3e9321a7dd7b1727963ccc0525f57fd2ea7a62c4e69a348e2ee62afe373d766"
+                imgSrc={food_image}
             >
                 <a href="#">
                     <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -20,7 +20,7 @@ const FoodCard = ({ food }) => {
                     </h5>
                 </a>
                 <div className="flex md:flex-row flex-row gap-0 md:gap-2 justify-between items-center">
-                    <Avatar className="space-x-1 md:space-x-2 justify-start" img="https://img.freepik.com/free-photo/guy-plaid-shirt_158595-126.jpg?w=740&t=st=1699245756~exp=1699246356~hmac=21ef141643ae2d93f966d2e25b68b398da76f2e52b1b31bf79b880e0bb8c7397" rounded>
+                    <Avatar className="space-x-1 md:space-x-2 justify-start" img={donor_image} rounded>
                         <div className="space-y-1 font-medium dark:text-white">
                             <Tooltip content='Donar' placement="right">
                                 <div className="text-sm font-semibold">{donor_name}</div>

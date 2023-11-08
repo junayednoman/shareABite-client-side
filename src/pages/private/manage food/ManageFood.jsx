@@ -119,7 +119,6 @@ const ManageFood = () => {
         }
     ]
 
-
     const table = useReactTable({
         data,
         columns,
