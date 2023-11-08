@@ -16,7 +16,7 @@ const FoodDetails = () => {
     const { user } = useContext(AuthContext)
     const food = useLoaderData();
     const axiosSecure = useAxios();
-    const { quantity, expire_date, food_image, pickup_location, donor_name, food_name, additional_notes, donor_email } = food;
+    const { quantity, expire_date, food_image, pickup_location, donor_name, food_name, additional_notes, donor_email, food_status, _id } = food;
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -37,7 +37,7 @@ const FoodDetails = () => {
         const expireDate = form.expireDate.value;
         const note = form.note.value;
         const donationMoney = form.donationMoney.value;
-        const foodData = { foodName, foodImage, donorName, donorEmail, requesterEmail, requestDate, pickupLocation, expireDate, note, donationMoney }
+        const foodData = { foodName, foodImage, donorName, donorEmail, requesterEmail, requestDate, pickupLocation, expireDate, note, donationMoney, food_status, food_id: _id, requesterImg: user.photoURL }
         // console.log(fields);
 
         axiosSecure.post('/food-request', foodData)

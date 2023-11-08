@@ -18,6 +18,7 @@ import AuthProvider from './auth provider/AuthProvider.jsx';
 import ErrorPage from './pages/error page/ErrorPage.jsx';
 import FoodDetails from './pages/private/food details/FoodDetails.jsx';
 import PrivateParent from './private parent/PrivateParent.jsx';
+import ManageSingleFood from './pages/private/manage single food/ManageSingleFood.jsx';
 
 const router = createBrowserRouter([
   {
@@ -42,24 +43,29 @@ const router = createBrowserRouter([
         path: '/manage-food',
         element: <PrivateParent><ManageFood></ManageFood></PrivateParent>
       },
-  {
-    path: '/my-food-request',
-    element: <PrivateParent><FoodRequest></FoodRequest></PrivateParent>
-  },
-  {
-    path: '/login',
-    element: <Login></Login>
-  },
-  {
-    path: '/sign-up',
-    element: <SignUp></SignUp>
-  },
-  {
-    path: '/food/:id',
-    element: <PrivateParent><FoodDetails></FoodDetails></PrivateParent>,
-    loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`)
-  },
-]
+      {
+        path: '/my-food-request',
+        element: <PrivateParent><FoodRequest></FoodRequest></PrivateParent>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/sign-up',
+        element: <SignUp></SignUp>
+      },
+      {
+        path: '/food/:id',
+        element: <PrivateParent><FoodDetails></FoodDetails></PrivateParent>,
+        loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`)
+      },
+      {
+        path: '/manage-single-food/:id',
+        element: <PrivateParent><ManageSingleFood></ManageSingleFood></PrivateParent>,
+        loader: ({ params }) => fetch(`http://localhost:5000/food-request/${params.id}`)
+      },
+    ]
   }
 ])
 

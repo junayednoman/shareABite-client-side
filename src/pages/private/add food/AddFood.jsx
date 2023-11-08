@@ -109,7 +109,7 @@ const AddFood = () => {
                         </div>
                         <TextInput name='status' defaultValue='Available' disabled required />
                     </div>
-                    <input className="col-span-2 cursor-pointer w-full block rounded-lg bg-[#9dc020e7] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#9CC020] focus:outline-none focus:ring-4  dark:bg-cyan-600 dark:hover:bg-cyan-700 mt-4" type="submit" value={'Submit Request'} />
+                    <input className="col-span-2 cursor-pointer w-full block rounded-lg bg-[#9dc020e7] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#9CC020] focus:outline-none focus:ring-4  dark:bg-cyan-600 dark:hover:bg-cyan-700 mt-4" type="submit" value={'Add Food'} />
                 </form>
             </div>
         </div>
