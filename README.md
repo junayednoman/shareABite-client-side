@@ -1,5 +1,4 @@
 # ShareABite
-Waste less, Feed
 
 ## 💥Key features:
     1️⃣ Accessible from all devices and browsers.
