@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: '/available-food',
         element: <AvailableFood></AvailableFood>,
-        loader: () => fetch('http://localhost:5000/foods')
+        loader: () => fetch('https://share-a-bite-server.vercel.app/foods')
       },
       {
         path: '/add-food',
@@ -58,12 +58,12 @@ const router = createBrowserRouter([
       {
         path: '/food/:id',
         element: <PrivateParent><FoodDetails></FoodDetails></PrivateParent>,
-        loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({ params }) => fetch(`https://share-a-bite-server.vercel.app/foods/${params.id}`)
       },
       {
         path: '/manage-single-food/:id',
         element: <PrivateParent><ManageSingleFood></ManageSingleFood></PrivateParent>,
-        loader: ({ params }) => fetch(`http://localhost:5000/food-request/${params.id}`)
+        loader: ({ params }) => fetch(`https://share-a-bite-server.vercel.app/food-request/${params.id}`)
       },
     ]
   }

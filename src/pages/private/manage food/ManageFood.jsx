@@ -142,29 +142,36 @@ const ManageFood = () => {
                 </title>
             </Helmet>
             <div className="wrapper">
-                {table.getHeaderGroups().map((headerGroup) => (
-                    <div className="tr" key={headerGroup.id}>
-                        {headerGroup.headers.map((header) => (
-                            <div className="th" key={header.id}>
-                                {header.column.columnDef.header}
+                {
+                    data.length > 0 ? <>
+                        {table.getHeaderGroups().map((headerGroup) => (
+                            <div className="tr" key={headerGroup.id}>
+                                {headerGroup.headers.map((header) => (
+                                    <div className="th" key={header.id}>
+                                        {header.column.columnDef.header}
+                                    </div>
+                                ))}
                             </div>
                         ))}
-                    </div>
-                ))}
 
-                {/* {
+                        {/* {
  */}
-                {
-                    table.getRowModel().rows.map((row) => (
-                        <div key={row.id} className="tr">
-                            {row.getVisibleCells().map((cell) => (
-                                <div key={cell.id} className="td">
-                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                        {
+                            table.getRowModel().rows.map((row) => (
+                                <div key={row.id} className="tr">
+                                    {row.getVisibleCells().map((cell) => (
+                                        <div key={cell.id} className="td">
+                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
-                        </div>
-                        // <div></div>
-                    ))
+                            ))
+                        }
+                    </> :
+                        <>
+                            <img className="mx-auto w-[150px]" src="https://media.tenor.com/QEcK2GmBJH4AAAAi/frog-frog-dog-log.gif" alt="" />
+                            <h4 className="font-semibold mt-5 mb-14 text-center text-xl md:text-4xl">No foods found!</h4>
+                        </>
                 }
             </div>
 
