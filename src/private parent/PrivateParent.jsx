@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { useContext } from 'react';
 import { AuthContext } from '../auth provider/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
-import { Spinner } from 'flowbite-react';
+import loadingImg from '../assets/loading.gif'
 
 const PrivateParent = ({ children }) => {
     const location = useLocation();
@@ -12,7 +12,7 @@ const PrivateParent = ({ children }) => {
 
     if (loading) {
         return <div className='h-[60vh] flex justify-center items-center'>
-            <Spinner aria-label="Extra large spinner example" size="xl" />
+            <img className='w-[110px]' src={loadingImg} alt="" />
         </div>
     } else if (!user) {
         return <Navigate state={stateInfo} to='/login' ></Navigate>

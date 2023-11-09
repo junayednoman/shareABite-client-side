@@ -39,7 +39,7 @@ const FoodCard = ({ food }) => {
                         <div className="flex gap-1 items-center">
                             <FcExpired></FcExpired>
                             <Tooltip content='Expire Date'>
-                                <p className="text-sm font-medium">{expire_date}</p>
+                                <p className="text-[13px] font-medium">{expire_date}</p>
                             </Tooltip>
 
                         </div>

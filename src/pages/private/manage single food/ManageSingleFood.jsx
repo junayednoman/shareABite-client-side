@@ -78,7 +78,7 @@ const ManageSingleFood = () => {
                     </div>
                 </div>
             </div>
-            <Button onClick={handleFoodStatus} className="mx-auto mt-7 bg-[#9CC020]">Deliver This Food</Button>
+            {requestedFood && <Button onClick={handleFoodStatus} className="mx-auto mt-7 bg-[#9CC020]">Deliver This Food</Button>}
         </div>
     );
 };

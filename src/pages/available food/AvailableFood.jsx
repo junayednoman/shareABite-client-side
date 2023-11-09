@@ -1,9 +1,11 @@
-import { Button, Spinner, TextInput } from "flowbite-react";
+import { Button, TextInput } from "flowbite-react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import FoodCard from "../home/sections/food card/FoodCard";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../auth provider/AuthProvider";
+import loadingImg from '../../assets/loading.gif'
+
 const AvailableFood = () => {
     const { loading } = useContext(AuthContext);
     const loadedFoods = useLoaderData();
@@ -39,7 +41,7 @@ const AvailableFood = () => {
 
     if (loading) {
         return <div className='h-[50vh] flex justify-center items-center'>
-            <Spinner aria-label="Extra large spinner example" size="xl" />
+            <img className="w-[110px]" src={loadingImg} alt="" />
         </div>
     }
 

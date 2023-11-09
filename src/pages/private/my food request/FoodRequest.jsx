@@ -13,7 +13,7 @@ const FoodRequest = () => {
     const axiosSecure = useAxios();
     const { user } = useContext(AuthContext);
     const [data, setData] = useState([]);
-    const { donationMoney, food_status, requestDate, expireDate, pickupLocation, donorName } = data;
+    const { donationMoney, food_status, requestDate, expireDate, foodName, pickupLocation, donorName } = data;
 
     useEffect(() => {
         axiosSecure.get(`/food-requests?email=${user.email}`)
@@ -32,6 +32,11 @@ const FoodRequest = () => {
         {
             accessorKey: 'food_status',
             header: 'Food Status',
+            cell: (props) => <p>{props.getValue()}</p>
+        },
+        {
+            accessorKey: 'foodName',
+            header: 'Food Name',
             cell: (props) => <p>{props.getValue()}</p>
         },
         {

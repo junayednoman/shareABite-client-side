@@ -62,7 +62,7 @@ const FoodDetails = () => {
             <Card
                 className="shadow-none block md:flex md:flex-row md:w-[80%] w-[95%] lg:w-2/3 hover:shadow-md duration-200 gap-0 p-0 md:p-3 food_card2 items-center mx-auto"
                 imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-                imgSrc="https://img.freepik.com/free-photo/basket-full-vegetables_1112-316.jpg?w=996&t=st=1699245562~exp=1699246162~hmac=f3e9321a7dd7b1727963ccc0525f57fd2ea7a62c4e69a348e2ee62afe373d766"
+                imgSrc={food_image}
             >
                 <a href="#">
                     <h5 className="md:text-3xl text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -181,6 +181,12 @@ const FoodDetails = () => {
                                     <Label value="Donation Money" />
                                 </div>
                                 <TextInput name='donationMoney' placeholder='$22' required />
+                            </div>
+                            <div className='md:col-span-2 mt-3'>
+                                <div className="mb-2 block">
+                                    <Label value="Food Id" />
+                                </div>
+                                <TextInput name='foodId' defaultValue={_id} disabled required />
                             </div>
                             <input className="col-span-2 cursor-pointer w-full block rounded-lg bg-[#9dc020e7] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#9CC020] focus:outline-none focus:ring-4  dark:bg-cyan-600 dark:hover:bg-cyan-700 mt-4" type="submit" value={'Submit Request'} />
                         </form>
