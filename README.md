@@ -11,10 +11,10 @@
 
     5️⃣ Secured specific APIs with JWT
 
-    7️⃣ Featured food items displayed on home page 
+    7️⃣ Featured food items displayed on the home page 
 
 
 
 
-### 🌐 Website live link:
+### 🌐 Website preview link:
 https://shareabit-3aa8b.web.app/
