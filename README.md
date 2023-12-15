@@ -1,20 +1,32 @@
 # ShareABite
 
-## 💥Key features:
-    1️⃣ Accessible from all devices and browsers.
+A compassionate food-sharing platform committed to eradicating food wastage and alleviating hunger. Here's a glimpse into my mission and standout features:
 
-    2️⃣ Private pages(only logged in user can browse these pages)
+Here's what makes the project stand out:
 
-    3️⃣ Search and sort functionality implemented
-    
-    4️⃣ Sign up and sign in system with email and password. Google login integrated
+### 1️⃣ Universal Access, Anytime, Anywhere
 
-    5️⃣ Secured specific APIs with JWT
+ShareABite is designed to be effortlessly accessible from all devices and browsers. Whether you're on your phone, tablet, or computer, the joy of sharing is just a click away.
 
-    7️⃣ Featured food items displayed on home page 
+### 2️⃣ Private Corners, Public Goodness
+
+Experience the warmth of my community with private pages exclusively available to logged-in users. Share meals with purpose and contribute to a world where every plate shared brings us closer to a hunger-free society.
+
+### 3️⃣ Effortless Giving with Smart Tools
+
+Navigate through ShareABite seamlessly with intuitive search and sort functionalities. Discover, share, and contribute to shared meals effortlessly.
+
+### 4️⃣ Sign Up, Sign In, Share the Love
+
+Whether you prefer the traditional email and password method or the convenience of Google login, you can sign up with both of them.
+
+### 5️⃣ Security Beyond Borders: JWT Shield
+
+Your shared data are safeguarded through my robust security system. ShareABite employs JSON Web Tokens (JWT) to secure specific APIs, ensuring the confidentiality and reliability of every shared meal.
+
+## Technologies needed:
+[![GitHub Streak](https://i.postimg.cc/0jqgptLG/Untitled-design-2.png)](#)
 
 
-
-
-### 🌐 Website live link:
+## 🌐 Website preview link:
 https://shareabit-3aa8b.web.app/
