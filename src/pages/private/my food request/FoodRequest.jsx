@@ -4,7 +4,6 @@ import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-tabl
 import useAxios from "../../../custom hooks/axios hook/useAxios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../auth provider/AuthProvider";
-import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai';
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 

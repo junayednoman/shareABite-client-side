@@ -11,11 +11,13 @@ const AvailableFood = () => {
     const loadedFoods = useLoaderData();
     const [foods, setFoods] = useState(loadedFoods);
 
+
     useEffect(() => {
         const AvailableFoods = loadedFoods.filter(loadedFood => loadedFood.food_status === "Available");
         console.log(AvailableFoods);
         setFoods(AvailableFoods)
-    }, [])
+    }, [loadedFoods])
+
     const handleSearch = e => {
         e.preventDefault();
         const searchTxt = e.target.searchTxt.value.toLocaleLowerCase();
@@ -24,9 +26,7 @@ const AvailableFood = () => {
     }
 
     // console.log(searchText);
-
     const handleSortByExpireDate = () => {
-
         const filteredItems = foods.sort((a, b) => {
             const dateA = new Date(a.expire_date)
             const dateB = new Date(b.expire_date)
@@ -50,6 +50,7 @@ const AvailableFood = () => {
             <Helmet>
                 <title>Available Foods | ShareABite - Waste Less, Feed</title>
             </Helmet>
+      
             <div className="wrapper">
                 <div className="md:py-10 py-7">
                     <div>
@@ -75,7 +76,7 @@ const AvailableFood = () => {
                         <div className="col-span-5">
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4 md:mb-24 mb-12">
                                 {
-                                    foods.map(food => <FoodCard key={food._id} food={food}></FoodCard>)
+                                    foods?.map(food => <FoodCard key={food._id} food={food}></FoodCard>)
                                 }
 
                             </div>

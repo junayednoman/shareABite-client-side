@@ -7,7 +7,6 @@ import { AuthContext } from '../../auth provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { Tooltip } from 'flowbite-react';
 
-
 const MenuBar = () => {
     const { user, loading, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -33,8 +32,6 @@ const MenuBar = () => {
 
     return (
         <div className='wrapper'>
-
-
             <Navbar fluid rounded className='p-0 py-6 md:py-8'>
                 <Navbar.Brand href="/">
                     <img src={logo} className="mr-3 w-[120px] md:w-[160px]" alt="Flowbite React Logo" />
@@ -63,17 +60,25 @@ const MenuBar = () => {
                     <Navbar.Link active className={`md:text-base text-sm lg:text-left text-right`}>
                         <NavLink className='anchor' to={'/'}>Home</NavLink>
                     </Navbar.Link >
-                    <Navbar.Link className={`md:text-base text-sm lg:text-left text-right`} href="#">
-                        <NavLink className='anchor' to='/add-food'>Add Food</NavLink>
-                    </Navbar.Link>
-                    <Navbar.Link className={`md:text-base text-sm lg:text-left text-right`} href="#">
-                        <NavLink className='anchor' to='/manage-food'>Manage My Foods</NavLink>
-                    </Navbar.Link>
                     <Navbar.Link className={`md:text-base text-sm lg:text-left text-right`} href="/available-food">
                         <NavLink className='anchor' to='/available-food'>Available Foods</NavLink>
                     </Navbar.Link>
+
+                    {
+                        user ? <>
+                            <Navbar.Link className={`md:text-base text-sm lg:text-left text-right`} href="#">
+                                <NavLink className='anchor' to='/add-food'>Add Food</NavLink>
+                            </Navbar.Link>
+                            <Navbar.Link className={`md:text-base text-sm lg:text-left text-right`} href="#">
+                                <NavLink className='anchor' to='/manage-food'>Manage Foods</NavLink>
+                            </Navbar.Link>
+                            <Navbar.Link className={`md:text-base text-sm lg:text-left text-right`} href="#">
+                                <NavLink className='anchor' to='/my-food-request'>Food Request</NavLink>
+                            </Navbar.Link>
+                        </> : ''
+                    }
                     <Navbar.Link className={`md:text-base text-sm lg:text-left text-right`} href="#">
-                        <NavLink className='anchor' to='/my-food-request'>My Food Request</NavLink>
+                        <NavLink className='anchor' to='/case-study'>Case Study</NavLink>
                     </Navbar.Link>
                 </Navbar.Collapse>
             </Navbar >

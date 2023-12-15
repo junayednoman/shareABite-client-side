@@ -32,12 +32,21 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         setLoading(true);
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            const loggedUser = { email: currentUser.email }
+            const userEmail = currentUser?.email || user?.email;
+            const loggedUser = { email: userEmail }
             setUser(currentUser)
             setLoading(false);
             // issue a jwt
             if (currentUser) {
-                axios.post(loggedUser, {withCredentials: true})
+                axios.post('https://share-a-bite-server.vercel.app/jwt', loggedUser, { withCredentials: true })
+                    .then(res => {
+                        console.log('token response', res.data);
+                    })
+            } else {
+                axios.post('https://share-a-bite-server.vercel.app/logout', loggedUser, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                    })
             }
         })
         return unSubscribe;

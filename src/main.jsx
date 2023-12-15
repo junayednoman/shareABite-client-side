@@ -2,10 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Home from './pages/home/Home.jsx';
 import AvailableFood from './pages/available food/AvailableFood.jsx';
 import AddFood from './pages/private/add food/AddFood.jsx';
@@ -19,6 +16,7 @@ import ErrorPage from './pages/error page/ErrorPage.jsx';
 import FoodDetails from './pages/private/food details/FoodDetails.jsx';
 import PrivateParent from './private parent/PrivateParent.jsx';
 import ManageSingleFood from './pages/private/manage single food/ManageSingleFood.jsx';
+import CaseStudy from './pages/case study/CaseStudy.jsx';
 
 const router = createBrowserRouter([
   {
@@ -64,6 +62,10 @@ const router = createBrowserRouter([
         path: '/manage-single-food/:id',
         element: <PrivateParent><ManageSingleFood></ManageSingleFood></PrivateParent>,
         loader: ({ params }) => fetch(`https://share-a-bite-server.vercel.app/food-request/${params.id}`)
+      },
+      {
+        path: '/case-study',
+        element: <CaseStudy></CaseStudy>
       },
     ]
   }

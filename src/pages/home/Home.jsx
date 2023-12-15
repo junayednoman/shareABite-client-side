@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Cta from "./sections/cta/Cta";
 import About from "./sections/about/About";
 import Testimonial from "./sections/testimonial/Testimonial";
+import GoogleMap from "../../components/google map/GoogleMap";
 
 
 const Home = () => {
@@ -73,6 +74,11 @@ const Home = () => {
             <div className="mb-10 md:mb-20">
                 <Cta></Cta>
             </div>
+
+        <div className="md:mb-10">
+        <GoogleMap></GoogleMap>
+        </div>
+
 
         </div>
     );

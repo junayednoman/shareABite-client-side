@@ -3,23 +3,43 @@ import { useLoaderData } from "react-router-dom";
 import { Card, Tooltip } from 'flowbite-react';
 import { CiLocationOn } from 'react-icons/ci';
 import { FcExpired } from 'react-icons/fc';
-import { FaUsers } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../auth provider/AuthProvider';
 import moment from 'moment/moment';
 import useAxios from '../../../custom hooks/axios hook/useAxios';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import {
+    FacebookShareButton,
+    TwitterShareButton,
+    TelegramShareButton,
+    WhatsappShareButton,
+} from 'react-share';
+import faceBookImg from '../../../assets/facebook.png'
+import twitterImg from '../../../assets/twitter.png'
+import whatsappImg from '../../../assets/whatsapp.png'
+import telegramImg from '../../../assets/telegram.png'
+import { FaUsers } from 'react-icons/fa';
 
 const FoodDetails = () => {
+    const [pageUrl, setPageUrl] = useState('')
     const { user } = useContext(AuthContext)
     const food = useLoaderData();
     const axiosSecure = useAxios();
     const { quantity, expire_date, food_image, pickup_location, donor_name, food_name, additional_notes, donor_email, food_status, _id } = food;
 
-    const [openModal, setOpenModal] = useState(false);
+    // social share
+    useEffect(() => {
+        const currentURL = window.location.href;
+        console.log("Current URL:", currentURL);
+        setPageUrl(currentURL)
+    }, []);
 
+    const shareTitle = "Dive into surplus taco bliss! 🌮✨";
+    const shareDescription = `Available in ${pickup_location} until ${expire_date}. Join the movement to reduce food waste! 💚😊`;
+
+    const [openModal, setOpenModal] = useState(false);
     function onCloseModal() {
         setOpenModal(false);
     }
@@ -51,8 +71,6 @@ const FoodDetails = () => {
                 }
             })
     }
-
-
     return (
         <div className="wrapper spacer">
             <Helmet>
@@ -110,6 +128,21 @@ const FoodDetails = () => {
                     >
                         Request This Food
                     </Link>
+                </div>
+                <div className='text-center space-x-3'>
+                    <div className="text-center mb-3">----- Share On -----</div>
+                    <FacebookShareButton url={pageUrl} hashtag=' #FoodSharing, #ReduceWaste, #CommunityLove' quote={shareTitle}>
+                        <img className='w-[40px]' src={faceBookImg} alt="" />
+                    </FacebookShareButton>
+                    <TwitterShareButton url={pageUrl} hashtags={['FoodSharing', 'ReduceWaste', 'CommunityLove']} title={shareTitle + shareDescription}>
+                        <img className='w-[40px]' src={twitterImg} alt="" />
+                    </TwitterShareButton>
+                    <TelegramShareButton>
+                        <img className='w-[40px]' src={telegramImg} alt="" />
+                    </TelegramShareButton>
+                    <WhatsappShareButton url={pageUrl} title={shareTitle+shareDescription}>
+                        <img className='w-[40px]' src={whatsappImg} alt="" />
+                    </WhatsappShareButton>
                 </div>
             </Card>
 
