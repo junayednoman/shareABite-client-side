@@ -11,7 +11,7 @@ const Banner = () => {
                     <Button className="bg-[#9CC020] mt-5 py-1 md:py-[6px] px-2 md:px-4">Get Started</Button>
                 </div>
                 <div>
-                    <img className="w-full" src={bannerImg} alt="" />
+                    <img className="w-full lg:block hidden" src={bannerImg} alt="" />
                 </div>
             </div>
         </div>

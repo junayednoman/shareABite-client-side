@@ -67,7 +67,7 @@ const Home = () => {
 
 
 
-            <div className="bg-[#9dc02055] py-10 md:py-20 px-5 md:px-14 mb-14 md:mt-0 mt-12 md:mb-28">
+            <div className="bg-[#9dc02055] py-10 md:py-20 px-5 md:px-14 mb-14 md:mt-0 mt-0 md:mb-28">
                 <Testimonial></Testimonial>
             </div>
 

@@ -10,16 +10,10 @@ const MyFooter = () => {
         <div className='wrapper'>
             <Footer container>
                 <div className="w-full">
-                    {/* <div className="grid grid-cols-3 w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1"> */}
 
                     <div className="text-left grid grid-cols-1 gap-2 sm:mt-4 md:grid-cols-3 lg:grid-cols-7 sm:gap-6">
                         <div className='col-span-1 lg:col-span-2'>
                             <img className='md:w-[160px] w-[120px]' src={logo} alt="" />
-                            {/* <p className='text-left text-gray-500 mt-4'><span className='font-semibold text-base'>Address:</span> <br />
-                               ShareABite<br />
-                                123 Main Street <br />
-                                Anytown, USA <br />
-                                12345</p> */}
                             <p className='mt-3 text-gray-500 text-sm'>Connecting surplus to need, we are on a mission to reduce food waste and hunger, one plate at a time.</p>
                         </div>
                         <div className='ml-0 lg:ml-5 col-span-1 lg:col-span-2'>
@@ -57,7 +51,7 @@ const MyFooter = () => {
                     {/* </div> */}
                     <Footer.Divider />
                     <div className="w-full sm:flex sm:items-center sm:justify-between">
-                        <p className='text-sm text-gray-500'> Copyright © 2023 ShareABite. Made with love by <span className='text-[#9CC020] font-medium'>Junayed Noman</span>.</p>
+                        <p className='text-sm text-gray-500'> Copyright © 2023 ShareABite. Made with love by <a href='https://junayed-noman.web.app/' rel='noreferrer' target='_blank' className='text-[#9CC020] font-medium'>Junayed Noman</a>.</p>
                         <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
                             <Footer.Icon href="#" icon={BsFacebook} />
                             <Footer.Icon href="#" icon={BsLinkedin} />
